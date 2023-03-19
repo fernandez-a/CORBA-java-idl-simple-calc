@@ -1,7 +1,7 @@
 
 import CalcApp.*;
 import CalcApp.CalcPackage.DivisionByZero;
-
+import java.lang.Math;
 import org.omg.CosNaming.*;
 import org.omg.CosNaming.NamingContextPackage.*;
 import org.omg.CORBA.*;
@@ -34,11 +34,57 @@ class CalcImpl extends CalcPOA {
     public float sub(float a, float b) {
         return a - b;
     }
+
+    @Override
+    public double sqrt(double a) {
+        return a*a;
+    }
+
+
+    @Override
+    public double power(double a,double b) {
+        return Math.pow(a,b);
+    }
+
+    @Override
+    public double cube(double a) {
+        return Math.pow(a,3);
+    }
+    @Override
+    public double sin(double a) {
+        return Math.sin(a);
+    }
+    @Override
+    public double cos(double a) {
+        return Math.cos(a);
+    }
+    @Override
+    public double tan(double a) {
+        return Math.tan(a);
+    }
+    @Override
+    public double log(double a) {
+        return Math.log10(a);
+    }
+    @Override
+    public double ln(double a) {
+        return Math.log(a);
+    }
+
     private ORB orb;
 
     public void setORB(ORB orb_val) {
         orb = orb_val;
     }
+
+    @Override
+    public double square(double num) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'square'");
+    }
+
+
+    
 }
 
 public class CalcServer {

@@ -8,5 +8,14 @@ module CalcApp
 		float div(in float a, in float b) raises (DivisionByZero);
 		float mul(in float a, in float b);
 		float sub(in float a, in float b);
+		double square(in double a);
+        double cube(in double a);
+        double power(in double base, in double exponent);
+		double sin(in double a);
+        double cos(in double a);
+        double tan(in double a);
+        double log(in double a);
+        double ln(in double a);
+        double sqrt(in double a);
 	};
 };

@@ -32,21 +32,27 @@ public class CalcClient {
             String name = "Calc";
             calcImpl = CalcHelper.narrow(ncRef.resolve_str(name));
 
-//			System.out.println(calcImpl);
-
-
             while (true) {
                 out.println("1. Sum");
                 out.println("2. Sub");
                 out.println("3. Mul");
                 out.println("4. Div");
-                out.println("5. exit");
+                out.println("5. Square");
+                out.println("6. Cube");
+                out.println("7. Power");
+                out.println("8. sin");
+                out.println("9. cos");
+                out.println("10. tan");
+                out.println("11. log");
+                out.println("12. ln");
+                out.println("13. sqrt");
+                out.println("14. exit");
                 out.println("--");
                 out.println("choice: ");
 
                 try {
                     String opt = br.readLine();
-                    if (opt.equals("5")) {
+                    if (opt.equals("14")) {
                         break;
                     } else if (opt.equals("1")) {
                         out.println("a+b= " + calcImpl.sum(getFloat("a"), getFloat("b")));
@@ -61,6 +67,31 @@ public class CalcClient {
                             out.println("Division by zero!!!");
                         }
                     }
+                    else if (opt.equals("5")) {
+                        out.println("a^2= " + calcImpl.square(getDouble("a")));
+                    }
+                    else if (opt.equals("6")) {
+                        out.println("a^3= " + calcImpl.cube(getDouble("a")));
+                    }
+                    else if (opt.equals("7")) {
+                        out.println("a^b= " + calcImpl.power(getDouble("a"), getDouble("b")));
+                    }
+                    else if (opt.equals("8")) {
+                        out.println("sin(a)= " + calcImpl.sin(getDouble("a")));
+                    } else if (opt.equals("9")) {
+                        out.println("cos(a)= " + calcImpl.cos(getDouble("a")));
+                    } else if (opt.equals("10")) {
+                        out.println("tan(a)= " + calcImpl.tan(getDouble("a")));
+                    } else if (opt.equals("11")) {
+                        out.println("log(a)= " + calcImpl.log(getDouble("a")));
+                    } else if (opt.equals("12")) {
+                        out.println("ln(a)= " + calcImpl.log(getDouble("a")));
+                    }
+                    else if (opt.equals("13")) {
+                        out.println("sqrt(a)= " + calcImpl.sqrt(getDouble("a")));
+                    }
+
+                    
                 } catch (Exception e) {
                     out.println("===");
                     out.println("Error with numbers");
@@ -79,5 +110,9 @@ public class CalcClient {
     static float getFloat(String number) throws Exception {
         out.print(number + ": ");
         return Float.parseFloat(br.readLine());
+    }
+    static double getDouble(String number) throws Exception {
+    out.print(number + ": ");
+    return Double.parseDouble(br.readLine());
     }
 }
